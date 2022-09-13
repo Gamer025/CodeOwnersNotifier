@@ -101,10 +101,6 @@ namespace CodeOwnersParser
             string regexString = "";
             //String containing the prepared path (escapeing, replacing etc.). Used so path doesn't get modified because its used as key
             string preparedPath;
-            //Entry ends with / aka only mathches folders not files
-            bool folderOnly = false;
-            //No slash at the beginning or middle, can match at any depth
-            bool anyDepth = false;
             //No slashes at all, match any file at any level
             bool fileMode = false;
 
@@ -114,10 +110,6 @@ namespace CodeOwnersParser
                 return regexString;
             }
 
-            if (path.EndsWith("/"))
-                folderOnly = true;
-            if (path[0..(path.Length - 1)].Contains("/"))
-                anyDepth = true;
             if (!path.Contains("/"))
                 fileMode = true;
 

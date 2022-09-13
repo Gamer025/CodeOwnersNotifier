@@ -36,7 +36,11 @@ static void NotifyOwners(ActionInputs inputs)
     }
 
     Console.WriteLine($"Getting PR files for PR with ID {inputs.pullID}");
-    var modifiedFilesTask = ghclient.PullRequest.Files(inputs.Owner, inputs.Name, inputs.pullID);
+    var batchPagination = new ApiOptions
+    {
+        PageSize = 100
+    };
+    var modifiedFilesTask = ghclient.PullRequest.Files(inputs.Owner, inputs.Name, inputs.pullID, batchPagination);
     List<Octokit.PullRequestFile> modifiedFiles;
     if (modifiedFilesTask.Wait(inputs.timeout))
     {

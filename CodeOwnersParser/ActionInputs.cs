@@ -34,24 +34,24 @@ namespace CodeOwnersParser
 
         [Option('t', "timeout",
             Required = false,
-            HelpText = "The workspace directory, or repository root directory. Use `/github/workspace`.",
+            HelpText = "Timeout for Github API calls in milliseconds.",
             Default = 10000)]
         public int timeout { get; set; } = 0;
 
         [Option('l', "fileLimit",
             Required = false,
-            HelpText = "The workspace directory, or repository root directory. Use `/github/workspace`.",
+            HelpText = "Maximum amount of files to process. PRs with more files will be skipped.",
             Default = 1000)]
         public int fileLimit { get; set; } = 0;
 
         [Option('k', "token",
             Required = false,
-            HelpText = "The workspace directory, or repository root directory. Use `/github/workspace`.")]
+            HelpText = "Token used for Github API calls.")]
         public string token { get; set; } = null!;
 
         [Option('f', "file",
             Required = false,
-            HelpText = "Path to the codeowners file.",
+            HelpText = "Relative path to the codeowners file.",
             Default = "/.github/CODEOWNERS")]
         public string file { get; set; } = null!;
 

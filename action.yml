@@ -16,7 +16,7 @@ inputs:
     default: ${{ github.repository }}
   timeout:
     description:
-      "Timeout for Github REST API requests."
+      "Timeout for Github API requests in milliseconds."
     required: false
     default: '10000'
   fileLimit:
@@ -26,7 +26,7 @@ inputs:
     default: '1000'
   token:
     description:
-      "Github token used for REST API. Only needed to increase rate limit, may not be provided."
+      "Github token used for Github API. Only needed to increase rate limit, may not be provided."
     required: false
     default: ${{ github.token }}
   workspace:

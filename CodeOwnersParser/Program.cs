@@ -73,8 +73,9 @@ static void NotifyOwners(ActionInputs inputs)
     string output = String.Join(inputs.separator, ownersWithModifiedFiles);
 
     Console.WriteLine($"Owners with file changes: {output}");
-    Console.WriteLine($"::set-output name=owners::{output}");
+    Environment.SetEnvironmentVariable("GITHUB_OUTPUT", Environment.GetEnvironmentVariable("GITHUB_OUTPUT") + "\n" + $"owners={output}");
     Console.WriteLine($"Output: {inputs.prefix + output + inputs.sufix}");
-    Console.WriteLine($"::set-output name=owners-formatted::{inputs.prefix + output + inputs.sufix}");
+    Environment.SetEnvironmentVariable("GITHUB_OUTPUT", Environment.GetEnvironmentVariable("GITHUB_OUTPUT") + "\n" + $"owners-formatted={inputs.prefix + output + inputs.sufix}");
+
 }
 

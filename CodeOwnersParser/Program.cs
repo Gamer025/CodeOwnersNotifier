@@ -76,6 +76,6 @@ static void NotifyOwners(ActionInputs inputs)
     Environment.SetEnvironmentVariable("GITHUB_OUTPUT", Environment.GetEnvironmentVariable("GITHUB_OUTPUT") + "\n" + $"owners={output}");
     Console.WriteLine($"Output: {inputs.prefix + output + inputs.sufix}");
     Environment.SetEnvironmentVariable("GITHUB_OUTPUT", Environment.GetEnvironmentVariable("GITHUB_OUTPUT") + "\n" + $"owners-formatted={inputs.prefix + output + inputs.sufix}");
-
+    Console.WriteLine("GITHUB_OUTPUT content: " + Environment.GetEnvironmentVariable("GITHUB_OUTPUT"));
 }
 

@@ -53,7 +53,7 @@ static void NotifyOwners(ActionInputs inputs)
 
     List<string> ownersWithModifiedFiles = Helpers.GetOwnersWithModifiedFiles(codeowners, modifiedFiles);
     //If we were provided a botname parse its comments and find already notifed owners
-    if (inputs.botname is not null)
+    if (!string.IsNullOrEmpty(inputs.botname))
     {
         var PRcommentsTask = ghclient.Issue.Comment.GetAllForIssue(inputs.Owner, inputs.Name, inputs.pullID);
         List<Octokit.IssueComment> PRcomments;
